@@ -1,0 +1,43 @@
+
+[[language]]
+name = "latex"
+# auto-format = false
+
+file-types = ["latex", "tex"]
+
+# Looks like obsolete 
+# [language.config.texlab.chktex]
+#  onOpenAndSave = true
+#  onEdit = true
+
+# [texlab.diagnostics]
+# ignoredPatterns = ["Undefined referenc*"]
+
+[language-server.texlab] 
+command = "texlab"
+# Build by pdflatex on save and - ignore wrongly found Undefined references (citations)
+config = {texlab.build.executable = "pdflatex", texlab.build.onSave = true, texlab.diagnostics.ignoredPatterns = ["Undefined referenc*"] }
+
+[[language]]
+name = "markdown"
+
+[[language]]
+name = "cpp"
+file-types = ["cpp", "h", "in"]
+
+[[language]]
+name = "html"
+
+[[language]]
+name = "css"
+
+[[language]]
+name = "python"
+
+[[language]]
+name = "meson"
+
+[[language]]
+name = "json"
+
+

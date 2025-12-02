@@ -1,0 +1,28 @@
+# $HOME/.config/alacritty/alacritty.toml
+# Alacritty configuration file
+
+[general]
+import = [
+    "~/.config/alacritty/themes/my-modified-ubuntu.toml"
+]
+
+[window]
+
+opacity = 1
+
+padding.x = 5
+padding.y = 5
+
+decorations = "Full"
+# decorations_theme_variant = "Light" # "Dark"
+decorations_theme_variant = "Dark"
+
+[font]
+
+normal.family = "Ubuntu Mono"
+bold.family = "Ubuntu Mono"
+italic.family = "Ubuntu Mono"
+bold_italic.family = "Ubuntu Mono"
+
+size = 13.0
+# łóżko

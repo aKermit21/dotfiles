@@ -8,3 +8,9 @@ for:
 - vifm
 - vi
 - bash
+
+## Usage
+``` Shell
+cd dotfiles
+stow <module> (like fish)
+```

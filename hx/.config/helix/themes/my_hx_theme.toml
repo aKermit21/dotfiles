@@ -1,0 +1,16 @@
+# based on standard bogster
+inherits = "bogster"
+
+# true black background
+# "ui.background" = { bg = "#000000"}
+# "ui.text" = { bg = "#000000"}
+
+# better visible cursorline
+"ui.cursorline.primary" = { fg = "default", bg = "default", underline = { color = "gray", style = "line"} }
+"ui.cursorline.secondary" = { fg = "default", bg = "default" }
+# "ui.cursor.select" = { fg = "red", bg = "red" } 
+
+# better distinguishable modes
+"ui.statusline.normal" = {fg = "white", bg = "dark_gray"}
+"ui.statusline.insert" = {fg = "white", bg = "red"}
+"ui.statusline.select" = {fg = "white", bg = "blue"}

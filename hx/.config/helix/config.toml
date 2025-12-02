@@ -1,0 +1,50 @@
+# theme = "bogster"
+# bogster modification with cursorline and status line tuned
+theme = "my_hx_theme"
+# theme = "kanagawa"
+# theme = "dark_high_contrast"
+
+[editor]
+line-number = "absolute"
+mouse = true
+bufferline = "multiple"
+cursorline = true
+color-modes = true
+
+[editor.statusline]
+# left = ["mode", "spinner", filename]
+center = []
+right = ["diagnostics", "selections", "position-percentage", "file-encoding", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+# Wrapping text
+[editor.soft-wrap]
+enable = true
+
+[editor.file-picker]
+hidden = true
+git-ignore = true
+
+[keys.normal]
+# VIM like D instead of Helix t<ret>d
+D = ["kill_to_line_end"]
+# VIM like 0 + delete
+0 = ["kill_to_line_start"]
+esc = ["collapse_selection", "keep_primary_selection"]
+# X = ["extend_line_above"]
+# Buffers (files) switching
+tab = ["goto_next_buffer"]
+"S-tab" = ["goto_previous_buffer"]
+
+# Avoid Esc
+[keys.insert]
+"C-[" = "normal_mode"
+
