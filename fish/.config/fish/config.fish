@@ -16,12 +16,21 @@ if status is-interactive
     abbr --add e exit
     abbr --add z zellij
     abbr --add ze zellij
+    abbr --add hx helix
     # bash without fallback to fish
     abbr --add ba bash -norc
     # firewall
     abbr --add fstate systemctl status firewalld.service
     abbr --add fstart sudo systemctl enable --now firewalld.service
     abbr --add fstop sudo systemctl stop firewalld.service
+    # btrfs
+    abbr --add quot sudo btrfs qgroup show /
+    abbr --add quote sudo btrfs qgroup show -re /
+    abbr --add quot-d sudo btrfs quota disable /
+    abbr --add quot-e sudo btrfs quota enable /
+    abbr --add bdu btrfs filesystem usage /
+    abbr --add dub btrfs filesystem usage /
+    # ls / dir
     abbr --add ls eza
     abbr --add ll eza -la
     abbr --add lr eza --recurse --level=2
@@ -37,13 +46,8 @@ if status is-interactive
     abbr --add brel cd build-mes-release
     abbr --add mj make -j6
     abbr --add df df -h
-    # Set secret token(s)
-    abbr --add sunrise source ~/.sunrise.fish
-    abbr --add push-frac git push https://$GHTOKEN@github.com/aKermit21/fractal-anim.git
     ### PGP
     abbr --add pgpl 'gpg --list-keys'
-    abbr --add aptlist 'apt list --installed | less'
-    abbr --add apt-list 'apt list --installed | less'
     abbr --add shutnow sudo shutdown now
     # Xorg or Wayland
     abbr --add xw echo $XDG_SESSION_TYPE
@@ -65,7 +69,8 @@ end
 function mailHDD
     echo "Updating mail archive to HDD:"
     echo ""
-    cp -vrpu ~/.thunderbird/ /media/hdd-data/alldata/Robert/Database/GMail/
+    rsync -aP ~/.thunderbird /media/hdd-data/alldata/Robert/Database/GMail
+    # cp -vrpu ~/.thunderbird/ /media/hdd-data/alldata/Robert/Database/GMail/
 end
 
 function prety

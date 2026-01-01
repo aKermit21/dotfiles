@@ -127,6 +127,10 @@ fi
 # if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
 # then
 # 	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
+
+# Possible not needed as it is set also in /etc/environment
+export EDITOR=/usr/bin/helix
+
 exec fish $LOGIN_OPTION
 # fi
 #

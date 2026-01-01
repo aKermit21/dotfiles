@@ -12,7 +12,7 @@ function docHDD
 
     echo "Updating files and notes to HDD:"
     echo ""
-    cp -vrpu ~/Documents/notes/* /media/hdd-data/alldata/Robert/notes/
+    cp -vrpu ~/notes/* /media/hdd-data/alldata/Robert/notes/
     cp -vrpu ~/Documents/latex/Pasozyt/*.tex /media/hdd-data/alldata/Robert/latex/
     cp -vrpu ~/Documents/latex/Pasozyt/*.md /media/hdd-data/alldata/Robert/latex/
     # copy also hidden files
@@ -31,6 +31,8 @@ function docHDD
     cp -vrpu ~/CppProjects/fraktale/src/*.h /media/hdd-data/alldata/Robert/CppProjects/fraktale/src
     cp -vrpu ~/CppProjects/fraktale/doc/* /media/hdd-data/alldata/Robert/CppProjects/fraktale/doc
     cp -vrpu ~/CppProjects/multi/*.cpp /media/hdd-data/alldata/Robert/CppProjects/multi/
+    # copy Graphic various projects
+    rsync -avm --include='*/' --include='*.xcf' --include='*.svg' --exclude='*' ~/Grafika/ /media/hdd-data/alldata/Grafika/
     #
     # GIT repo backup - bundle - if in given Git project
     if contains CppProjects $spwd
