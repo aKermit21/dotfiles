@@ -17,6 +17,9 @@ if status is-interactive
     abbr --add z zellij
     abbr --add ze zellij
     abbr --add hx helix
+    abbr --add ff fastfetch
+    # Open file with default application
+    abbr --add open xdg-open
     # bash without fallback to fish
     abbr --add ba bash -norc
     # firewall
@@ -30,10 +33,13 @@ if status is-interactive
     abbr --add quot-e sudo btrfs quota enable /
     abbr --add bdu btrfs filesystem usage /
     abbr --add dub btrfs filesystem usage /
+    abbr --add subv sudo btrfs subvolume list /
     # ls / dir
-    abbr --add ls eza
-    abbr --add ll eza -la
+    abbr --add le eza
+    abbr --add ll eza -la --icons -s modified
     abbr --add lr eza --recurse --level=2
+    abbr --add lt eza --recurse --level=2
+    abbr --add lt3 eza --recurse --level=3
     abbr --add c. cd ~/.config/
     abbr --add cl cd ~/Documents/latex/Pasozyt
     abbr --add ch cd ~/Documents/HTML

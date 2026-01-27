@@ -13,13 +13,9 @@ function docHDD
     echo "Updating files and notes to HDD:"
     echo ""
     cp -vrpu ~/notes/* /media/hdd-data/alldata/Robert/notes/
-    cp -vrpu ~/Documents/latex/Pasozyt/*.tex /media/hdd-data/alldata/Robert/latex/
-    cp -vrpu ~/Documents/latex/Pasozyt/*.md /media/hdd-data/alldata/Robert/latex/
-    # copy also hidden files
-    #   cp -vrpu ~/Documents/latex/ /media/hdd-data/alldata/Robert/
+    rsync -avm --include='*/' --include='*.tex' --include='*.md' --exclude='*' ~/Documents/latex/ /media/hdd-data/alldata/Robert/latex/
     cp -vrpu ~/Documents/HTML/* /media/hdd-data/alldata/Robert/HTML/
-    cp -vrpu ~/Documents/latex/Pasozyt/*.tex /media/hdd-data/alldata/Robert/backup_dotelefonu/
-    cp -vrpu ~/Documents/latex/Pasozyt/*.md /media/hdd-data/alldata/Robert/backup_dotelefonu/
+    rsync -avm --include='*/' --include='*.tex' --include='*.md' --exclude='*' ~/Documents/latex/ /media/hdd-data/alldata/Robert/backup_dotelefonu/
     cp -vrpu ~/Database/*.kdbx /media/hdd-data/alldata/Robert/Database/
     cp -vrpu ~/Database/*.kdbx /media/hdd-data/alldata/Robert/backup_dotelefonu/
     cp -vrpu ~/Database/*.txt /media/hdd-data/alldata/Robert/Database/
@@ -31,8 +27,8 @@ function docHDD
     cp -vrpu ~/CppProjects/fraktale/src/*.h /media/hdd-data/alldata/Robert/CppProjects/fraktale/src
     cp -vrpu ~/CppProjects/fraktale/doc/* /media/hdd-data/alldata/Robert/CppProjects/fraktale/doc
     cp -vrpu ~/CppProjects/multi/*.cpp /media/hdd-data/alldata/Robert/CppProjects/multi/
-    # copy Graphic various projects
-    rsync -avm --include='*/' --include='*.xcf' --include='*.svg' --exclude='*' ~/Grafika/ /media/hdd-data/alldata/Grafika/
+    # copy Graphic various projects: GIMP, Inkscape, SVG generation scripts
+    rsync -avm --include='*/' --include='*.xcf' --include='*.svg' --include='*.fish' --include='*.py' --exclude='*' ~/Grafika/ /media/hdd-data/alldata/Grafika/
     #
     # GIT repo backup - bundle - if in given Git project
     if contains CppProjects $spwd
