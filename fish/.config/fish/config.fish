@@ -10,6 +10,12 @@ if status is-interactive
         sudo du -h $argv | sort -hr | head -10
     end
 
+    function subv -d 'lists btrfs subvolumes'
+        sudo btrfs subvolume list /
+        echo 'btrfs subvolume mappings:'
+        cat /proc/self/mountinfo | grep btrfs | awk '{ print $4, $5 }'
+    end
+
     set fish_color_command white --bold
 
     ### Abbreviations ###
@@ -33,7 +39,6 @@ if status is-interactive
     abbr --add quot-e sudo btrfs quota enable /
     abbr --add bdu btrfs filesystem usage /
     abbr --add dub btrfs filesystem usage /
-    abbr --add subv sudo btrfs subvolume list /
     # ls / dir
     abbr --add le eza
     abbr --add ll eza -la --icons -s modified
