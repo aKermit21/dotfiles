@@ -23,7 +23,7 @@ name = "markdown"
 
 [[language]]
 name = "cpp"
-file-types = ["cpp", "h", "in"]
+file-types = ["cpp", "h", "hpp", "in"]
 
 [[language]]
 name = "html"
