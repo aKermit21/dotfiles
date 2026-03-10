@@ -1,16 +1,17 @@
 # dotfiles
-Configuration files organized in a structure to be used by (GNU) stow
-for:
-- fish (shell)
+Configuration files organized in a structure to be used by (GNU) **stow** for:
+- fish
+- fastfetch
 - helix
 - kitty
 - foot
+- superfile (file manager)
 - vifm
-- vi
+- vim
 - bash
 
 ## Usage
 ``` Shell
 cd dotfiles
-stow <module> (like fish)
+stow <application> # (ex. kitty)
 ```
