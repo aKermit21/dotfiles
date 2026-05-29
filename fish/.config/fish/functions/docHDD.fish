@@ -4,6 +4,7 @@ function docHDD
     set dayd (math (date "+%d") % 10)
     set gitdir /media/hdd-data/alldata/GIT/
     set gitCppFile $gitdir'CppPrjs_Git_'$dayd'.bundle'
+    set gitGrowFrac $gitdir'CppGrowFrac_Git_'$dayd'.bundle'
     set gitLatexFile $gitdir'Latex_Git_'$dayd'.bundle'
     set gitHTMLFile $gitdir'HTML_Git_'$dayd'.bundle'
     set gitStowFile $gitdir'dotfiles-stow_Git_'$dayd'.bundle'
@@ -14,7 +15,7 @@ function docHDD
     echo ""
     cp -vrpu ~/notes/* /media/hdd-data/alldata/Robert/notes/
     rsync -avm --include='*/' --include='*.tex' --include='*.md' --exclude='*' ~/Documents/latex/ /media/hdd-data/alldata/Robert/latex/
-    cp -vrpu ~/Documents/HTML/* /media/hdd-data/alldata/Robert/HTML/
+    # cp -vrpu ~/Documents/HTML/* /media/hdd-data/alldata/Robert/HTML/
     rsync -avm --include='*/' --include='*.tex' --include='*.md' --exclude='*' ~/Documents/latex/ /media/hdd-data/alldata/Robert/backup_dotelefonu/
     cp -vrpu ~/Database/*.kdbx /media/hdd-data/alldata/Robert/Database/
     cp -vrpu ~/Database/*.kdbx /media/hdd-data/alldata/Robert/backup_dotelefonu/
@@ -23,8 +24,8 @@ function docHDD
     # backup all dotfiles including hidden files
     # cp -vru ~/dotfiles-stow/ /media/hdd-data/alldata/Robert/Dotfiles/thisPC/
     # cp -vrpu ~/PycharmProjects/ /media/hdd-data/alldata/Robert/
-    cp -vrpu ~/CppProjects/fraktale/src/*.cpp /media/hdd-data/alldata/Robert/CppProjects/fraktale/src
-    cp -vrpu ~/CppProjects/fraktale/src/*.h /media/hdd-data/alldata/Robert/CppProjects/fraktale/src
+    # cp -vrpu ~/CppProjects/fraktale/src/*.cpp /media/hdd-data/alldata/Robert/CppProjects/fraktale/src
+    # cp -vrpu ~/CppProjects/fraktale/src/*.h /media/hdd-data/alldata/Robert/CppProjects/fraktale/src
     cp -vrpu ~/CppProjects/fraktale/doc/* /media/hdd-data/alldata/Robert/CppProjects/fraktale/doc
     cp -vrpu ~/CppProjects/multi/*.cpp /media/hdd-data/alldata/Robert/CppProjects/multi/
     # copy Graphic various projects: GIMP, Inkscape, SVG generation scripts
@@ -32,23 +33,28 @@ function docHDD
     #
     # GIT repo backup - bundle - if in given Git project
     if contains CppProjects $spwd
-        echo "creating backup of GIT repo:"
         echo ""
+        echo "creating backup of GIT repo: $gitCppFile"
         git bundle create $gitCppFile HEAD master
     end
-    if contains latex $spwd
-        echo "creating backup of latex GIT repo:"
+    if contains grow-frac $spwd
         echo ""
+        echo "creating backup of GIT repo: $gitGrowFrac"
+        git bundle create $gitGrowFrac HEAD master
+    end
+    if contains latex $spwd
+        echo ""
+        echo "creating backup of latex GIT repo:"
         git bundle create $gitLatexFile HEAD master
     end
     if contains HTML $spwd
-        echo "creating backup of HTML GIT repo:"
         echo ""
+        echo "creating backup of HTML GIT repo:"
         git bundle create $gitHTMLFile HEAD master
     end
     if contains dotfiles-stow $spwd
-        echo "creating backup of dotfiles-stow GIT repo:"
         echo ""
+        echo "creating backup of dotfiles-stow GIT repo:"
         git bundle create $gitStowFile HEAD master
     end
 end

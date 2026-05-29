@@ -20,7 +20,6 @@ if status is-interactive
 
     ### Abbreviations ###
     abbr --add e exit
-    abbr --add z zellij
     abbr --add ze zellij
     abbr --add hx helix
     abbr --add ff fastfetch
@@ -49,6 +48,8 @@ if status is-interactive
     abbr --add cl cd ~/Documents/latex/Pasozyt
     abbr --add ch cd ~/Documents/HTML
     abbr --add cc cd ~/CppProjects/fraktale/src
+    # Compilation
+    abbr --add n ninja
     abbr --add mc meson compile
     abbr --add mcc meson compile --clean
     abbr --add mco meson configure
@@ -66,9 +67,11 @@ if status is-interactive
     # Terminal history
     abbr --add th 'commandline (history search | fzf)'
 
-    # zoxide (smart cd) will be called by 'zo' as 'z' is already used by zellij
-    zoxide init fish --cmd zo | source
+    # zoxide (smart cd) will be called by 'z'
+    zoxide init fish --cmd z | source
 
+    # zellij startup in any terminal
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 # Copy latex, notes sources and var configs to HDD
@@ -77,6 +80,7 @@ end
 # end
 
 # Copy thunderbird mail archive to HDD
+# Rather obsolete because of Pika backup utility usage
 function mailHDD
     echo "Updating mail archive to HDD:"
     echo ""
