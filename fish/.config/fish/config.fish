@@ -31,6 +31,8 @@ if status is-interactive
     abbr --add fstate systemctl status firewalld.service
     abbr --add fstart sudo systemctl enable --now firewalld.service
     abbr --add fstop sudo systemctl stop firewalld.service
+    # services / daemons
+    abbr --add slist systemctl list-units --type=service --state=running
     # btrfs
     abbr --add quot sudo btrfs qgroup show /
     abbr --add quote sudo btrfs qgroup show -re /
