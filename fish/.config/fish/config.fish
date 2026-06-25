@@ -104,3 +104,5 @@ end
 set --export GNUPGHOME $HOME/.gnupg/onlykey
 
 set --export JAVA_HOME /usr
+
+fish_add_path "$HOME/.local/bin"
